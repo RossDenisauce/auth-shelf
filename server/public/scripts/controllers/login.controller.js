@@ -9,6 +9,19 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
     self.userObject = UserService.userObject;
     self.newItem = {};
 
+    self.shelf = [];
+    self.getShelf = function() {
+      $http.get('/api/shelf')
+        .then(function(response) {
+          console.log('response', response);
+          self.shelf = response.data;
+        })
+        .catch(function(error) {
+          console.log('error getting shelf', error);
+        });
+    }
+    self.getShelf();
+
     self.login = function() {
       if(self.user.username === '' || self.user.password === '') {
         self.message = "Enter your username and password!";
