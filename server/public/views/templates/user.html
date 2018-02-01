@@ -5,6 +5,10 @@
     <button class="btn btn-default" ng-click="vm.userService.logout()">Log Out</button>
 </div>
 
+<div ng-repeat="items in vm.shelf">
+    <p>{{items.description}}</p>
+    <p>{{items.image_url}}</p>
+</div>
 <div>
     <input type="text" ng-model="vm.newItem.description" ng-if="vm.userObject" placeholder="Description Here">
     <input type="text" ng-model="vm.newItem.image_url" ng-if="vm.userObject" placeholder="Image URL Here">
