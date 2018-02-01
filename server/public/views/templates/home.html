@@ -20,8 +20,5 @@
             <p>{{items.description}}</p>
             <p>{{items.image_url}}</p>
         </div>
-        <input type="text" ng-model="vm.newItem.description" ng-if="vm.userObject" placeholder="Description Here">
-        <input type="text" ng-model="vm.newItem.image_url" ng-if="vm.userObject" placeholder="Image URL Here">
-        <button ng-if="vm.userObject" ng-click="vm.addItem(vm.newItem)">Add Item</button>
     </div>
 </div>
