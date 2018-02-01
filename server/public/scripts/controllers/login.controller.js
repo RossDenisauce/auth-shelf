@@ -50,10 +50,11 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', '$mdDi
     }
     self.loginModal = function() {
       console.log('hi')
-      self.$mdDialog.show({
+      $mdDialog.show({
         targetEvent: event,
-        templateUrl: '/views/template.html',
+        templateUrl: '/views/templates/login.html',
         controller: () => this,
         controllerAs: 'vm'
       })
+    }
 }]);
