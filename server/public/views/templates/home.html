@@ -15,8 +15,8 @@
           <a href="#!register">Register</a>
       </div>
     </form>
-    <div ng-repeat="items in vm.shelf.list">
-        <div ng-repeat="item in items.item">
+    <div ng-repeat="shelfItem in vm.shelf.list">
+        <div ng-repeat="item in shelfItem.items">
             <p>{{item.description}}</p>
             <p>{{item.image_url}}</p>
         </div>
