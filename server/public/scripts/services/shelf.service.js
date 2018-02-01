@@ -8,7 +8,7 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
       $http.get('/api/shelf')
         .then(function(response) {
           console.log('response', response);
-          self.shelf = response.data;
+          self.shelf.list = response.data;
         })
         .catch(function(error) {
           console.log('error getting shelf', error);

@@ -8,4 +8,7 @@ myApp.controller('UserController', ['UserService', 'ShelfService', function(User
   self.getShelf = ShelfService.getShelf;
   self.getShelf();
 
+  console.log(self.shelf);
+  
+
 }]);
