@@ -5,3 +5,6 @@ This version uses Angular to control the login requests and redirection in coord
 * Run `npm install`,
 * Start mongo if not running already by using `mongod`
 * Run `npm start` in an open tab of terminal,
+
+## Team East!!
+* Ernie, Ross Andrew and Paul
