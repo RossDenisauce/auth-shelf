@@ -23,7 +23,7 @@
     <md-dialog>
             <md-content>
                             <h1 class="lead">Login</h1>
-                              <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
+                              <h1 class="lead alert alert-danger" role="alert">{{vm.message}}</h2>
                                 <div>
                                     <label for="username">Username:</label>
                                     <input type="text" ng-model="vm.user.username" />
@@ -33,7 +33,7 @@
                                     <input type="password" ng-model="vm.user.password" />
                                 </div>
                                 <div>
-                                  <button class="btn btn-default" ng-click="vm.login(vm.user)" name="submit" value="Log In"></button>
+                                  <button class="btn btn-default" ng-click="$vm.login(vm.user)" name="submit" value="Log In"></button>
                                     <a href="#!register">Register</a>
                                 </div>
                              

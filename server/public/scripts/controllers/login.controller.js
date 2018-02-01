@@ -10,6 +10,7 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', '$mdDi
     self.newItem = {};
 
     self.login = function() {
+      console.log('hello!');
       if(self.user.username === '' || self.user.password === '') {
         self.message = "Enter your username and password!";
       } else { //If login is filled in properly, there is a http post request with the user data to /login on the user.router from the server
