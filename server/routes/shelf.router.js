@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
 
 // POST route
 router.post('/:id', (req, res) => {
+    if (req.isAuthenticated()) { 
 	console.log('data to save: ', req.body);
 	// create an instance of our model
     let itemToAdd = new Item(req.body);
@@ -37,6 +38,10 @@ router.post('/:id', (req, res) => {
             }
         }
     );
+    } else {
+        // failure best handled on the server. do redirect here.
+        res.sendStatus(403);
+      }
 	// // create a new Document in our database and collection
 	// itemToAdd.save( (error, saveditem) => {
 	// 	if (error) {

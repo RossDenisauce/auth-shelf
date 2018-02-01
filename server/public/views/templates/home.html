@@ -9,11 +9,10 @@
             </div>
 <div class="container">
     <div ng-repeat="shelfItem in vm.shelf.list">
-        <p>{{shelfItem.username}}</p>
+        <label>Username: </label><p>{{shelfItem.username}}</p>
         <div ng-repeat="item in shelfItem.items">
-            <p>{{item.description}}</p>
-            <p>{{item.image_url}}</p>
-
+            <label>Item: </label><p>{{item.description}}</p>
+            <label>Image URL: </label><p>{{item.image_url}}</p>
         </div>
     </div>
 </div>
