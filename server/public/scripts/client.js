@@ -4,7 +4,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial']);
 myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
-      redirectTo: 'home'
+      redirectTo: '/home'
     })
     .when('/home', {
       templateUrl: '/views/templates/home.html',

@@ -48,39 +48,11 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', '$mdDi
       }
     }
 
-    self.moreInfo = function moreInfo(thing) {
+    self.loginModal = function() {
       console.log('hi')
         $mdDialog.show({
-            controllerAs: 'LoginController',
             clickOutsideToClose: true,
-            bindToController: true,
-            controller: function($mdDialog) {
-                this.click = function() {
-                    $mdDialog.show({
-                        controllerAs: 'vm',
-                        controller: function($mdDialog) {
-                            this.click = function() {
-                                $mdDialog.hide();
-                            };
-                        },
-                    });
-                };
-            },
-            autoWrap: false,
-            templateUrl: '/views/templates/login.html',
-            locals: {
-                thing: thing
-            }
+            templateUrl: '/views/templates/login.html'
         });
     };
-
-
-
-
-
-
-
-
-    
-  
 }]);
