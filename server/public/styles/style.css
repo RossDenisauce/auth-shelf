@@ -72,3 +72,25 @@ li a:hover {
     text-decoration: underline;
     color: #eee;
 }
+
+
+/* HOME */
+.md-button {
+    width:100px;
+    position: absolute;
+    top:0;
+    right:0;
+
+}
+ md-dialog {
+    padding:10px;
+    min-height: 160px;
+    width: 370px;
+}
+
+.fa-times-circle {
+    font-size:36px;
+    position: absolute;
+    top:0;
+    right:0;
+}
