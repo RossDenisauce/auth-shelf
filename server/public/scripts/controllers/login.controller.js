@@ -1,4 +1,6 @@
-myApp.controller('LoginController', ['$http', '$location', 'UserService', 'ShelfService', function($http, $location, UserService, ShelfService) {
+
+myApp.controller('LoginController', ['$http', '$location', 'UserService', 'ShelfService', function($http, $location, UserService, ShelfService, $mdDialog) {
+
     console.log('LoginController created');
     var self = this;
     self.user = {
@@ -18,6 +20,7 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', 'Shelf
         self.message = "Enter your username and password!";
       } else { //If login is filled in properly, there is a http post request with the user data to /login on the user.router from the server
         console.log('sending to server...', self.user);
+        $mdDialog.hide();
         $http.post('/api/user/login', self.user).then(
         function(response) {
           if(response.status == 200) {
@@ -51,5 +54,17 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', 'Shelf
         });
       }
     }
+    self.loginModal = function() {
+      console.log('hi')
+      $mdDialog.show({
+        targetEvent: event,
+        templateUrl: '/views/templates/login.html',
+        controller: () => this,
+        controllerAs: 'vm'
+      })
+    }
 
+    self.hideModal = function() {
+      $mdDialog.hide();
+    }
 }]);

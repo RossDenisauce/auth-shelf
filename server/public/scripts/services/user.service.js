@@ -1,4 +1,4 @@
-myApp.service('UserService', ['$http', '$location', function ($http, $location) {
+myApp.service('UserService', ['$http', '$location', '$mdDialog', function ($http, $location, $mdDialog) {
   console.log('UserService Loaded');
   
   var self = this;
@@ -36,4 +36,7 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
       $location.path("/home");
     });
   }
+        
+  
 }]);
+
