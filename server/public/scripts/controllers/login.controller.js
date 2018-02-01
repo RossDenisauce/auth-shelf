@@ -1,6 +1,5 @@
 
-myApp.controller('LoginController', ['$http', '$location', 'UserService', 'ShelfService', function($http, $location, UserService, ShelfService, $mdDialog) {
-
+myApp.controller('LoginController', ['$http', '$location', 'UserService', 'ShelfService', '$mdDialog', function($http, $location, UserService, ShelfService, $mdDialog) {
     console.log('LoginController created');
     var self = this;
     self.user = {
