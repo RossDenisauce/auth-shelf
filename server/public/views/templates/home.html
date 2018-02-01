@@ -16,6 +16,7 @@
       </div>
     </form>
     <div ng-repeat="shelfItem in vm.shelf.list">
+        <p>{{shelfItem.username}}</p>
         <div ng-repeat="item in shelfItem.items">
             <p>{{item.description}}</p>
             <p>{{item.image_url}}</p>
