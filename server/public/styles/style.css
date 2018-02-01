@@ -75,4 +75,10 @@ li a:hover {
 
 
 /* HOME */
-
+.stickyDialog {
+    min-height: 200px;
+    min-width: 300px;
+}
+.stickyDialog md-content {
+    padding:10px;
+}

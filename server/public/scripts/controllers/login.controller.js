@@ -1,4 +1,4 @@
-myApp.controller('LoginController', ['$http', '$location', 'UserService', 'ngMaterial', function($http, $location, UserService, ngMaterial) {
+myApp.controller('LoginController', ['$http', '$location', 'UserService', '$mdDialog', function($http, $location, UserService, $mdDialog) {
     console.log('LoginController created');
     var self = this;
     self.user = {
@@ -47,4 +47,40 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', 'ngMat
         });
       }
     }
+
+    self.moreInfo = function moreInfo(thing) {
+      console.log('hi')
+        $mdDialog.show({
+            controllerAs: 'LoginController',
+            clickOutsideToClose: true,
+            bindToController: true,
+            controller: function($mdDialog) {
+                this.click = function() {
+                    $mdDialog.show({
+                        controllerAs: 'vm',
+                        controller: function($mdDialog) {
+                            this.click = function() {
+                                $mdDialog.hide();
+                            };
+                        },
+                    });
+                };
+            },
+            autoWrap: false,
+            templateUrl: '/views/templates/login.html',
+            locals: {
+                thing: thing
+            }
+        });
+    };
+
+
+
+
+
+
+
+
+    
+  
 }]);
