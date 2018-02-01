@@ -10,11 +10,11 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', '$mdDi
     self.newItem = {};
 
     self.login = function() {
-      $mdDialog.hide();
       if(self.user.username === '' || self.user.password === '') {
         self.message = "Enter your username and password!";
       } else { //If login is filled in properly, there is a http post request with the user data to /login on the user.router from the server
         console.log('sending to server...', self.user);
+        $mdDialog.hide();
         $http.post('/api/user/login', self.user).then(
         function(response) {
           if(response.status == 200) {
@@ -56,5 +56,9 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', '$mdDi
         controller: () => this,
         controllerAs: 'vm'
       })
+    }
+
+    self.hideModal = function() {
+      $mdDialog.hide();
     }
 }]);
