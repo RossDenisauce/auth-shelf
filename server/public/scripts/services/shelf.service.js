@@ -17,6 +17,14 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
 
     self.addItem = function(itemIn){
       $http.post('/api/shelf')
+
+	      .then(function (response) {
+		      console.log('shelf post response', response);
+		      self.newShelfItem = {};
+	      })
+	      .catch(function (response) {
+		      console.log('error on shelf post', response);
+	      });
     }
   }]);
   
