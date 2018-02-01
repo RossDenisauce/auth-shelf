@@ -48,12 +48,12 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', '$mdDi
         });
       }
     }
-
     self.loginModal = function() {
       console.log('hi')
-        $mdDialog.show({
-            clickOutsideToClose: true,
-            templateUrl: '/views/templates/login.html'
-        });
-    };
+      self.$mdDialog.show({
+        targetEvent: event,
+        templateUrl: '/views/template.html',
+        controller: () => this,
+        controllerAs: 'vm'
+      })
 }]);
