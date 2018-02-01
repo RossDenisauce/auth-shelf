@@ -1,4 +1,4 @@
-myApp.controller('LoginController', ['$http', '$location', 'UserService', function($http, $location, UserService) {
+myApp.controller('LoginController', ['$http', '$location', 'UserService', 'ShelfService', function($http, $location, UserService, ShelfService) {
     console.log('LoginController created');
     var self = this;
     self.user = {
@@ -8,6 +8,10 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
     self.message = '';
     self.userObject = UserService.userObject;
     self.newItem = {};
+
+    self.shelf = ShelfService.shelf;
+    self.getShelf = ShelfService.getShelf;
+    self.getShelf();
 
     self.login = function() {
       if(self.user.username === '' || self.user.password === '') {
