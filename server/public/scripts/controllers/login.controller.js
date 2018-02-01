@@ -1,4 +1,4 @@
-myApp.controller('LoginController', ['$http', '$location', 'UserService', function($http, $location, UserService) {
+myApp.controller('LoginController', ['$http', '$location', 'UserService', 'ShelfService', function($http, $location, UserService, ShelfService) {
     console.log('LoginController created');
     var self = this;
     self.user = {
@@ -9,17 +9,8 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
     self.userObject = UserService.userObject;
     self.newItem = {};
 
-    self.shelf = [];
-    self.getShelf = function() {
-      $http.get('/api/shelf')
-        .then(function(response) {
-          console.log('response', response);
-          self.shelf = response.data;
-        })
-        .catch(function(error) {
-          console.log('error getting shelf', error);
-        });
-    }
+    self.shelf = ShelfService.shelf;
+    self.getShelf = ShelfService.getShelf;
     self.getShelf();
 
     self.login = function() {
