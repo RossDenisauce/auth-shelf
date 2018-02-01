@@ -4,13 +4,9 @@ var myApp = angular.module('myApp', ['ngRoute']);
 myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
-      redirectTo: 'shelf'
+      redirectTo: 'home'
     })
-    .when('/shelf', {
-      templateUrl: '/views/templates/shelf.html',
-      controller: 'ShelfController as vm', //Uses ShelfContoller
-    })
-    .when('/login', {
+    .when('/home', {
       templateUrl: '/views/templates/home.html',
       controller: 'LoginController as vm', //Uses LoginContoller
     })
