@@ -1,4 +1,4 @@
-myApp.service('UserService', ['$http', '$location', '$mdDialog', function ($http, $location, $mdDialog) {
+myApp.service('UserService', ['$http', '$location', function ($http, $location) {
   console.log('UserService Loaded');
   
   var self = this;
@@ -12,7 +12,8 @@ myApp.service('UserService', ['$http', '$location', '$mdDialog', function ($http
         if (response.data.username) {
           // user has a curret session on the server
           self.userObject.userName = response.data.username;
-          console.log('User Data: ', self.userObject.userName);
+          self.userObject.id = response.data._id;
+          console.log('User Data: ', self.userObject);
         } else {
           // unlikely to get here, but if we do, bounce them back to the login page
           $location.path("/home");

@@ -8,4 +8,9 @@ myApp.controller('UserController', ['UserService', 'ShelfService', function(User
   self.getShelf = ShelfService.getShelf;
   self.getShelf();
 
+  self.addItem = function(itemIn, userId){
+    ShelfService.addItem(itemIn, userId);
+  }
+  
+
 }]);
