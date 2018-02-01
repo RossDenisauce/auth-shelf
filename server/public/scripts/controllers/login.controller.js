@@ -6,6 +6,8 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
       password: ''
     };
     self.message = '';
+    self.userObject = UserService.userObject;
+    self.newItem = {};
 
     self.login = function() {
       if(self.user.username === '' || self.user.password === '') {
