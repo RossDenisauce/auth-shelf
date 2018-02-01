@@ -47,4 +47,8 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
         });
       }
     }
+
+    // self.addItem = function(itemIn){
+    //   $http.post('/api/user/login')
+    // }
 }]);
