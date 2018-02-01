@@ -17,7 +17,7 @@ const PersonSchema = new Schema({
 });
 
 
-
-
-
-module.exports = mongoose.model('Person', PersonSchema);
+module.exports = {
+  Person: mongoose.model('Person', PersonSchema),
+  Item: mongoose.model('Item', ItemsSchema)
+};
