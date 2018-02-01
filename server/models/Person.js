@@ -14,7 +14,7 @@ const ItemsSchema = new Schema({
   description: {type: String, required: true},
   placer: [PersonSchema],
   image_url:  String
-})
+});
 
 
 
