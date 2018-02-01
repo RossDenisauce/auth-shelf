@@ -1,4 +1,4 @@
-myApp.controller('LoginController', ['$http', '$location', 'UserService', function($http, $location, UserService) {
+myApp.controller('LoginController', ['$http', '$location', 'UserService', 'ngMaterial', function($http, $location, UserService, ngMaterial) {
     console.log('LoginController created');
     var self = this;
     self.user = {
