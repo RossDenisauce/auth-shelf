@@ -52,7 +52,4 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', 'Shelf
       }
     }
 
-    // self.addItem = function(itemIn){
-    //   $http.post('/api/user/login')
-    // }
 }]);
