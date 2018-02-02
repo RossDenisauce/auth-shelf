@@ -42,17 +42,30 @@ router.post('/:id', (req, res) => {
         // failure best handled on the server. do redirect here.
         res.sendStatus(403);
       }
-	// // create a new Document in our database and collection
-	// itemToAdd.save( (error, saveditem) => {
-	// 	if (error) {
-	// 		console.log('error on save: ', error);
-	// 		res.sendStatus(500);
-	// 	} else {
-	// 		console.log('new swapi Document: ', saveditem);
-	// 		res.sendStatus(201);
-	// 	}
-	// }); // end save
-
 }); // end post route
 
+router.delete('/:username/:id', (req, res) => {
+    if (req.isAuthenticated()) {
+        Person.findOneAndUpdate(
+            {"username": req.params.username},
+            {$pull: {items: {"_id": req.params.id}} },
+            (error, doc) => {
+                if (error) {
+                    console.log('error on delete from items array: ', error);
+                    res.sendStatus(500);
+                } else {
+                    console.log('deleted Document: ', doc);
+                    res.sendStatus(200);
+                }
+            }
+        );
+    } else {
+        console.log('Error on auth');
+        
+        // failure best handled on the server. do redirect here.
+        res.sendStatus(500);
+    }
+});
+
 module.exports = router;
+

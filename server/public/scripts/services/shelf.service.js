@@ -26,5 +26,16 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
 		      console.log('error on shelf post', response);
 	      });
     }
+
+    self.deleteItem = function(username, itemId){
+      $http.delete(`api/shelf/${username}/${itemId}`)
+        .then(function (response) {
+          console.log('shelf delete response', response);
+          self.getShelf();
+        })
+        .catch(function (response) {
+          console.log('error on shelf delete', response);
+        });
+    }
   }]);
   
