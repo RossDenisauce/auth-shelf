@@ -1,20 +1,23 @@
-<div class="container" ng-cloak="">
-                <md-button ng-click="vm.loginModal()">
-                    Login
-                </md-button>
-
+    <div>
+        <md-button ng-click="vm.loginModal()">
+        Login
+        </md-button>
+    </div>
+    <div class="container">
         <div ng-repeat="items in vm.shelf">
             <p>{{items.description}}</p>
             <p>{{items.image_url}}</p>
-            </div>
-<div class="container">
-    <div ng-repeat="shelfItem in vm.shelf.list">
-        <p>{{shelfItem.username}}</p>
-        <div ng-repeat="item in shelfItem.items">
-            <p>{{item.description}}</p>
-            <p>{{item.image_url}}</p>
+        </div>
+
+        <div class="shelf" ng-repeat="shelfItem in vm.shelf.list">
+            <div class="person">
+                <label>Username: </label><p>{{shelfItem.username}}</p>
+            </div>                
+            <div class="row">
+                <div class="col-xs-4 col-md-2 item" ng-repeat="item in shelfItem.items">
+                        <label>Item: </label><p>{{item.description}}</p>
+                        <label>Image URL: </label><p>{{item.image_url}}</p>
+                </div>
 
         </div>
-    </div>
-</div>
-</div>
+    </div> 
