@@ -19,11 +19,11 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', 'Shelf
         self.message = "Enter your username and password!";
       } else { //If login is filled in properly, there is a http post request with the user data to /login on the user.router from the server
         console.log('sending to server...', self.user);
-        $mdDialog.hide();
         $http.post('/api/user/login', self.user).then(
         function(response) {
           if(response.status == 200) {
             console.log('success: ', response.data);
+            $mdDialog.hide();
             // location works with SPA (ng-route)
             $location.path('/user');     // If the post was successful you will be redirected to /user
           } else {
