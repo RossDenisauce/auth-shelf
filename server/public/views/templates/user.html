@@ -1,20 +1,24 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
-
-    <h1 id="welcome" class="lead">Welcome, {{vm.userObject.userName}}!</h1>
+<div class="container">    
+<h1 id="welcome" class="lead">Welcome, {{vm.userObject.userName}}!</h1>
     <button class="btn btn-default" ng-click="vm.userService.logout()">Log Out</button>
-</div>
-
-<div ng-repeat="shelfItem in vm.shelf.list">
-    <label>Username: </label><p>{{shelfItem.username}}</p>
-    <div ng-repeat="item in shelfItem.items">
-        <label>Item: </label><p>{{item.description}}</p>
-        <label>Image URL: </label><p>{{item.image_url}}</p>
-        <button ng-click="vm.deleteItem(shelfItem.username, item._id)">Delete Item</button>
-    </div>
-</div>
 <div>
     <input type="text" ng-model="vm.newItem.description" placeholder="Description Here">
     <input type="text" ng-model="vm.newItem.image_url" placeholder="Image URL Here">
     <button ng-if="vm.userObject" ng-click="vm.addItem(vm.newItem, vm.userObject.id)">Add Item</button>
+</div>
+
+        <div class="shelf" ng-repeat="shelfItem in vm.shelf.list">
+            <div class="person">
+                <label>Username: </label><p>{{shelfItem.username}}</p>
+            </div>                
+            <div class="row">
+                <div class="col-xs-4 col-md-2 item" ng-repeat="item in shelfItem.items">
+                        <label>Item: </label><p>{{item.description}}</p>
+                        <label>Image URL: </label><p>{{item.image_url}}</p>
+                        <button ng-click="vm.deleteItem(shelfItem.username, item._id)">Delete Item</button>
+                </div>
+        </div>
+    </div> 
+    </div>
 </div>
